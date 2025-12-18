@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willie's Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* RGB Animated Title */
+        header {
+            border-bottom: 2px solid black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .rgb-title {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: rgb-animation 5s linear infinite;
+        }
+
+        @keyframes rgb-animation {
+            0% { color: #ff0000; }
+            33% { color: #00ff00; }
+            66% { color: #0000ff; }
+            100% { color: #ff0000; }
+        }
+
+        /* Layout Container */
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 200px;
+            border-right: 3px solid black;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            padding: 10px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .main-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .description-text {
+            font-size: 1.5rem;
+            color: #333;
+            max-width: 800px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="rgb-title">Willie's page</div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="software.html">software</a>
+            <a href="games.html">games</a>
+            <a href="cheats.html">cheats</a>
+        </nav>
+
+        <main>
+            <img src="image1.png" alt="Main Content Image" class="main-image">
+            
+            <div class="description-text">
+                Your plain text goes here. You can add as much information as you'd like about your software, games, or cheats.
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
