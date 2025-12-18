@@ -60,7 +60,6 @@
             height: calc(100vh - 100px);
         }
 
-        /* Sidebar Navigation */
         nav {
             width: 200px;
             border-right: 3px solid black;
@@ -84,7 +83,18 @@
             flex-direction: column;
             align-items: center;
             padding: 40px;
-            overflow-y: auto;
+            overflow-y: auto; /* Allows scrolling through games */
+        }
+
+        /* Game Card Styling */
+        .game-entry {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 80px; /* Space between different games */
+            width: 100%;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 40px;
         }
 
         .game-image {
@@ -100,7 +110,6 @@
             max-width: 600px;
         }
 
-        /* Download Button Styling */
         .download-btn {
             background-color: #000;
             color: #fff;
@@ -117,7 +126,7 @@
             transform: scale(1.1);
         }
 
-        /* Ad Styling - keeping it consistent */
+        /* Ad Styling */
         .ad-container {
             margin-top: 50px;
             display: flex;
@@ -135,7 +144,7 @@
 <body>
 
     <div id="overlay">
-        <h1>Press any key to see Games</h1>
+        <h1>Press any key</h1>
     </div>
 
     <audio id="bg-music" loop>
@@ -143,7 +152,7 @@
     </audio>
 
     <header>
-        <div class="rgb-title">Willie's page</div>
+        <div class="rgb-title">Games</div>
     </header>
 
     <div class="container">
@@ -155,13 +164,23 @@
         </nav>
 
         <main>
-            <img src="game1.png" alt="Game 1 Preview" class="game-image">
-            
-            <div class="game-description">
-                This is the description for Game 1. It is an awesome game that you can download right now using the button below!
+            <div class="game-entry">
+                <img src="game1.png" alt="Game 1" class="game-image">
+                <div class="game-description">Simple game ig</div>
+                <a href="game1.zip" download class="download-btn"> download </a>
             </div>
 
-            <a href="game1.zip" download class="download-btn">DOWNLOAD</a>
+            <div class="game-entry">
+                <img src="game2.png" alt="Game 2" class="game-image">
+                <div class="game-description"> make triacetone triperoxide bomb for afghan nation, watchlist edition</div>
+                <a href="game2.zip" download class="download-btn"> download </a>
+            </div>
+
+            <div class="game-entry">
+                <img src="game3.png" alt="Game 3" class="game-image">
+                <div class="game-description"> use source ig </div>
+                <a href="game3.zip" download class="download-btn"> download </a>
+            </div>
 
             <div class="ad-container">
                 <a href="https://sxtc.ru" target="_blank" class="ad-link"><img src="ad.png" alt="Ad 1"></a>
