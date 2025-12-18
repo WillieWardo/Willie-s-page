@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willie's Games</title>
+    <title>Willie's Page</title>
     <style>
         body, html {
             margin: 0;
@@ -76,75 +76,50 @@
             font-weight: bold;
         }
 
-        /* Main Game Content Area */
         main {
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 40px;
-            overflow-y: auto; /* Allows scrolling through games */
+            overflow-y: auto; /* Allows scrolling if many ads are added */
         }
 
-        /* Game Card Styling */
-        .game-entry {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 80px; /* Space between different games */
-            width: 100%;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 40px;
-        }
-
-        .game-image {
+        .main-image {
             max-width: 500px;
-            border-radius: 10px;
             margin-bottom: 20px;
         }
 
-        .game-description {
+        .description-text {
             font-size: 1.2rem;
-            margin-bottom: 20px;
-            text-align: center;
-            max-width: 600px;
+            margin-bottom: 30px;
         }
 
-        .download-btn {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .download-btn:hover {
-            background-color: #333;
-            transform: scale(1.1);
-        }
-
-        /* Ad Styling */
+        /* Ad Container and Styling */
         .ad-container {
-            margin-top: 50px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 15px; /* Spacing between ads */
             align-items: center;
         }
 
         .ad-link img {
             max-width: 300px;
             border: 2px solid #ccc;
+            transition: transform 0.2s;
+            display: block;
+        }
+
+        .ad-link img:hover {
+            transform: scale(1.05);
+            border-color: #333;
         }
     </style>
 </head>
 <body>
 
     <div id="overlay">
-        <h1>Press any key to see Games</h1>
+        <h1>Press any key to enter Willie's Page</h1>
     </div>
 
     <audio id="bg-music" loop>
@@ -157,35 +132,30 @@
 
     <div class="container">
         <nav>
-            <a href="index.html">home</a>
             <a href="software.html">software</a>
             <a href="games.html">games</a>
             <a href="cheats.html">cheats</a>
         </nav>
 
         <main>
-            <div class="game-entry">
-                <img src="game1.png" alt="Game 1" class="game-image">
-                <div class="game-description">Description for Game 1.</div>
-                <a href="game1.zip" download class="download-btn">DOWNLOAD GAME 1</a>
-            </div>
-
-            <div class="game-entry">
-                <img src="game2.png" alt="Game 2" class="game-image">
-                <div class="game-description">Description for Game 2.</div>
-                <a href="game2.zip" download class="download-btn">DOWNLOAD GAME 2</a>
-            </div>
-
-            <div class="game-entry">
-                <img src="game3.png" alt="Game 3" class="game-image">
-                <div class="game-description">Description for Game 3.</div>
-                <a href="game3.zip" download class="download-btn">DOWNLOAD GAME 3</a>
+            <img src="image1.png" alt="Main Content" class="main-image">
+            
+            <div class="description-text">
+                Your plain text goes here.
             </div>
 
             <div class="ad-container">
-                <a href="https://sxtc.ru" target="_blank" class="ad-link"><img src="ad.png" alt="Ad 1"></a>
-                <a href="https://szynek.gay" target="_blank" class="ad-link"><img src="ad3.png" alt="Ad 3"></a>
-                <a href="https://thuiszorgnederland.nl" target="_blank" class="ad-link"><img src="ad4.png" alt="Ad 4"></a>
+                <a href="https://sxtc.ru" target="_blank" class="ad-link">
+                    <img src="ad.png" alt="Ad 1">
+                </a>
+
+                <a href="https://szynek.gay" target="_blank" class="ad-link">
+                    <img src="ad3.png" alt="Ad 3">
+                </a>
+
+                <a href="https://thuiszorgnederland.nl" target="_blank" class="ad-link">
+                    <img src="ad4.png" alt="Ad 4">
+                </a>
             </div>
         </main>
     </div>
@@ -200,7 +170,9 @@
                 overlay.style.display = 'none';
                 document.body.style.overflow = 'auto'; 
             }, 500);
+            
             music.play();
+            
             window.removeEventListener('keydown', unlock);
             window.removeEventListener('click', unlock);
         }
