@@ -10,7 +10,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
             height: 100vh;
-            overflow: hidden; /* Prevents scrolling while blurred */
+            overflow: hidden; 
         }
 
         /* The Blur Overlay */
@@ -82,7 +82,7 @@
             flex-direction: column;
             align-items: center;
             padding: 40px;
-            overflow-y: auto;
+            overflow-y: auto; /* Allows scrolling if many ads are added */
         }
 
         .main-image {
@@ -95,15 +95,24 @@
             margin-bottom: 30px;
         }
 
-        /* Ad Styling */
+        /* Ad Container and Styling */
+        .ad-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between ads */
+            align-items: center;
+        }
+
         .ad-link img {
             max-width: 300px;
             border: 2px solid #ccc;
             transition: transform 0.2s;
+            display: block;
         }
 
         .ad-link img:hover {
             transform: scale(1.05);
+            border-color: #333;
         }
     </style>
 </head>
@@ -135,9 +144,19 @@
                 Your plain text goes here.
             </div>
 
-            <a href="https://sxtc.ru" target="_blank" class="ad-link">
-                <img src="ad.png" alt="Click here">
-            </a>
+            <div class="ad-container">
+                <a href="https://sxtc.ru" target="_blank" class="ad-link">
+                    <img src="ad.png" alt="Ad 1">
+                </a>
+
+                <a href="https://szynek.gay" target="_blank" class="ad-link">
+                    <img src="ad3.png" alt="Ad 3">
+                </a>
+
+                <a href="https://thuiszorgnederland.nl" target="_blank" class="ad-link">
+                    <img src="ad4.png" alt="Ad 4">
+                </a>
+            </div>
         </main>
     </div>
 
@@ -145,22 +164,19 @@
         const overlay = document.getElementById('overlay');
         const music = document.getElementById('bg-music');
 
-        // Function to unlock site and start music
         function unlock() {
             overlay.style.opacity = '0';
             setTimeout(() => {
                 overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                document.body.style.overflow = 'auto'; 
             }, 500);
             
             music.play();
             
-            // Remove the listeners so they don't fire again
             window.removeEventListener('keydown', unlock);
             window.removeEventListener('click', unlock);
         }
 
-        // Listen for any key or click
         window.addEventListener('keydown', unlock);
         window.addEventListener('click', unlock);
     </script>
