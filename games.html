@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willie's Games</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden; 
+        }
+
+        /* The Blur Overlay */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+
+        #overlay h1 {
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        /* RGB Animated Title */
+        header {
+            border-bottom: 2px solid black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .rgb-title {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: rgb-animation 5s linear infinite;
+        }
+
+        @keyframes rgb-animation {
+            0% { color: #ff0000; }
+            33% { color: #00ff00; }
+            66% { color: #0000ff; }
+            100% { color: #ff0000; }
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 100px);
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 200px;
+            border-right: 3px solid black;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Main Game Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .game-image {
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .game-description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* Download Button Styling */
+        .download-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Ad Styling - keeping it consistent */
+        .ad-container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .ad-link img {
+            max-width: 300px;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <h1>Press any key to see Games</h1>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+        <div class="rgb-title">Willie's page</div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">home</a>
+            <a href="software.html">software</a>
+            <a href="games.html">games</a>
+            <a href="cheats.html">cheats</a>
+        </nav>
+
+        <main>
+            <img src="game1.png" alt="Game 1 Preview" class="game-image">
+            
+            <div class="game-description">
+                This is the description for Game 1. It is an awesome game that you can download right now using the button below!
+            </div>
+
+            <a href="game1.zip" download class="download-btn">DOWNLOAD</a>
+
+            <div class="ad-container">
+                <a href="https://sxtc.ru" target="_blank" class="ad-link"><img src="ad.png" alt="Ad 1"></a>
+                <a href="https://szynek.gay" target="_blank" class="ad-link"><img src="ad3.png" alt="Ad 3"></a>
+                <a href="https://thuiszorgnederland.nl" target="_blank" class="ad-link"><img src="ad4.png" alt="Ad 4"></a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const music = document.getElementById('bg-music');
+
+        function unlock() {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+            }, 500);
+            music.play();
+            window.removeEventListener('keydown', unlock);
+            window.removeEventListener('click', unlock);
+        }
+
+        window.addEventListener('keydown', unlock);
+        window.addEventListener('click', unlock);
+    </script>
+
+</body>
+</html>
